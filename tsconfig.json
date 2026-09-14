@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "module-people-scaffold": ["./src/index"]
+      "module-people": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

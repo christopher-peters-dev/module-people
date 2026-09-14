@@ -1,12 +1,12 @@
 {
-  "name": "module-people-scaffold",
+  "name": "@christopher-peters-dev/module-people",
   "version": "0.1.0",
   "description": "a package for people module",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
     ".": {
-      "module-people-scaffold-source": "./src/index.tsx",
+      "@christopher-peters-dev/module-people-source": "./src/index.tsx",
       "types": "./lib/typescript/src/index.d.ts",
       "default": "./lib/module/index.js"
     },
@@ -32,7 +32,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace module-people-scaffold-example",
+    "example": "yarn workspace @christopher-peters-dev/module-people-example",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
     "typecheck": "tsc",
@@ -46,14 +46,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/christopher-peters-dev/module-people-scaffold.git"
+    "url": "git+https://github.com/christopher-peters-dev/module-people.git"
   },
   "author": "Chris <christopher.peters.dev@gmail.com> (https://github.com/christopher-peters-dev)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/christopher-peters-dev/module-people-scaffold/issues"
+    "url": "https://github.com/christopher-peters-dev/module-people/issues"
   },
-  "homepage": "https://github.com/christopher-peters-dev/module-people-scaffold#readme",
+  "homepage": "https://github.com/christopher-peters-dev/module-people#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

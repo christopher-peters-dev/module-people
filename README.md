@@ -1,4 +1,4 @@
-# module-people-scaffold
+# module-people
 
 a package for people module
 
@@ -6,7 +6,7 @@ a package for people module
 
 
 ```sh
-npm install module-people-scaffold
+npm install module-people
 ```
 
 
@@ -14,7 +14,7 @@ npm install module-people-scaffold
 
 
 ```js
-import { multiply } from 'module-people-scaffold';
+import { multiply } from 'module-people';
 
 // ...
 
