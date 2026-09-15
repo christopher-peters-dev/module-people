@@ -480,9 +480,35 @@ new GetPeople(repository)
 ```
 
 This allows a later phase to introduce a DI solution such as `tsyringe`
-without restructuring the Domain layer.
+without changing the business contract between the use case and repository.
 
-Dependency Injection will be evaluated and implemented in a later phase.
+Dependency Injection is implemented in Phase 2.
+
+### Phase 2 DI boundary
+
+Phase 2 uses `tsyringe` for constructor injection and a host-created
+`DependencyContainer`. The feature module owns the registrations through:
+
+```ts
+registerPeopleModule(container)
+```
+
+The registration function receives a container from the executable host; it
+does not register services in tsyringe's global container. The module keeps its
+repository token and its Data/Domain implementation types private. Stateless
+People dependencies use transient lifetimes in this POC.
+
+The module-owned integration component is the consumer boundary:
+
+```tsx
+<PeopleFeature container={container} />
+```
+
+`PeopleFeature` resolves the internal `GetPeople` use case and passes it to
+the pure `PeopleScreen`. `PeopleScreen` remains unaware of tsyringe, and the
+host need not know the API client, repository implementation, repository token,
+or use case. `reflect-metadata` must be initialized once by the executable host
+before module code that uses decorators is loaded.
 
 ---
 
@@ -617,6 +643,9 @@ Shared Design System:
 - Tokens
 - Shared UI components
 
+The design system may become a separately owned shared package after the POC
+establishes the need for it.
+
 ## Phase 4
 `module-jobs`
 
@@ -643,10 +672,15 @@ Package publishing/CD
 ## Phase 11
 Native Android/iOS consumption
 
+A shared native Turbo Module package is a future native-platform concern. It
+is not part of the current feature-module POC.
+
 ## Phase 12
 Complete end-to-end CI/CD
 
 Do not skip ahead unless explicitly instructed.
+
+React Native Web is outside the scope of this native Android/iOS POC.
 
 ---
 

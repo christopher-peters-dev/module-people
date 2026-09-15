@@ -1,1 +1,2 @@
-export { PeopleScreen } from './presentation/screens/PeopleScreen';
+export { registerPeopleModule } from './di/registerPeopleModule';
+export { PeopleFeature } from './integration/PeopleFeature';

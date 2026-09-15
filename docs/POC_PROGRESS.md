@@ -73,12 +73,12 @@ Do not mark an item complete unless it has been implemented and validated.
 
 # Phase 2 — Dependency Injection
 
-**Status:** NOT STARTED
+**Status:** COMPLETE
 
-- [ ] Evaluate DI approach
-- [ ] Introduce DI
-- [ ] Validate dependency wiring
-- [ ] Validate mock/test configuration
+- [x] Evaluate DI approach
+- [x] Introduce DI
+- [x] Validate dependency wiring
+- [x] Validate mock/test configuration
 
 ---
 
@@ -154,7 +154,9 @@ Record important decisions here as the POC evolves.
 
 | Decision | Phase | Reason |
 |---|---|---|
-| | | |
+| Module-owned tsyringe registration receives a host-created `DependencyContainer` | 2 | The module owns its internal graph without relying on global registration or exposing Data/Domain internals to its host. |
+| `PeopleFeature` is the public integration boundary | 2 | Hosts register the module and render its feature component without resolving the internal `GetPeople` use case. |
+| Stateless People dependencies are transient | 2 | The current API client, repository, and use case have no state that warrants a longer-lived registration. |
 
 ---
 

@@ -1,9 +1,11 @@
+import { inject, injectable } from 'tsyringe';
 import { PeopleApi } from '../api/PeopleApi';
 import type { Person } from '../../domain/entities/Person';
 import type { PeopleRepository } from '../../domain/repositories/PeopleRepository';
 
+@injectable()
 export class PeopleRepositoryImpl implements PeopleRepository {
-  constructor(private readonly peopleApi: PeopleApi) {}
+  constructor(@inject(PeopleApi) private readonly peopleApi: PeopleApi) {}
 
   async getPeople(): Promise<Person[]> {
     const people = await this.peopleApi.getPeople();
