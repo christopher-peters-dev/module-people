@@ -13,7 +13,6 @@ const root = path.resolve(__dirname, '..');
 const config = withMetroConfig(getDefaultConfig(__dirname), {
   root,
   dirname: __dirname,
-  conditions: ['module-people-scaffold-source'],
 });
 
 module.exports = config;

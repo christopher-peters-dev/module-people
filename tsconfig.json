@@ -6,10 +6,7 @@
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "customConditions": [
-      "module-people-scaffold-source",
-      "react-native-strict-api"
-    ],
+    "customConditions": ["react-native-strict-api"],
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
