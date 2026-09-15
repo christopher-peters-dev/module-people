@@ -1,20 +1,12 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'module-people-scaffold';
+import { PeopleScreen } from '../../src';
+import { PeopleApi } from '../../src/data/api/PeopleApi';
+import { PeopleRepositoryImpl } from '../../src/data/repositories/PeopleRepositoryImpl';
+import { GetPeople } from '../../src/domain/usecases/GetPeople';
 
-const result = multiply(3, 7);
+const peopleApi = new PeopleApi();
+const peopleRepository = new PeopleRepositoryImpl(peopleApi);
+const getPeople = new GetPeople(peopleRepository);
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
-  );
+  return <PeopleScreen getPeople={getPeople} />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

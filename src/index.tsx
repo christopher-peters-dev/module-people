@@ -1,1 +1,1 @@
-export { multiply } from './multiply';
+export { PeopleScreen } from './presentation/screens/PeopleScreen';
